@@ -73,13 +73,57 @@ autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=rou
 " :Cuc my text (no quotes) -> runs cucumber scenarios containing "my text"
 command! -nargs=+ Cuc :!ack --no-heading --no-break <q-args> | cut -d':' -f1,2 | xargs bundle exec cucumber --no-color
 
-
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
+" Leader shortcuts for Rails commands
+map <Leader>m :Rmodel 
+map <Leader>c :Rcontroller 
+map <Leader>v :Rview 
+map <Leader>u :Runittest 
+map <Leader>f :Rfunctionaltest 
+map <Leader>tm :RTmodel 
+map <Leader>tc :RTcontroller 
+map <Leader>tv :RTview 
+map <Leader>tu :RTunittest 
+map <Leader>tf :RTfunctionaltest 
+map <Leader>sm :RSmodel 
+map <Leader>sc :RScontroller 
+map <Leader>sv :RSview 
+map <Leader>su :RSunittest 
+map <Leader>sf :RSfunctionaltest 
+"
+" " Hide search highlighting
+" map <Leader>h :set invhls <CR>
+"
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+"
+" Opens a tab edit command with the path of the currently edited file filled
+" Normal mode: <Leader>t
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+"
+" Inserts the path of the currently edited file into a command
+" Command mode: Ctrl+P
+cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
+"
+" " Duplicate a selection
+" " Visual mode: D
+" vmap D y'>p
+"
+" Press Shift+P while in visual mode to replace the selection without
+" overwriting the default register
+vmap P p :call setreg('"', getreg('0')) <CR>
+"
+" For Haml
+au! BufRead,BufNewFile *.haml         setfiletype haml
+"
+" Maps autocomplete to tab
+imap <Tab> <C-N>
+
+imap <C-L> <Space>=><Space>
+
+ " Edit routes
+command! Rroutes :e config/routes.rb
+command! Rschema :e db/schema.rb
