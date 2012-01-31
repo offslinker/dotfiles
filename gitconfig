@@ -1,11 +1,9 @@
+[user]
+	name = Alex Slynko
 [push]
   # Push current branch even if you've never pushed it before
   default = current
 [format]
-  # git log uses --pretty format by default, so this changes the default
-  # format
-  # Now log uses --pretty by default
-  # 4436819 [23 hours ago] (Gabe Berke-Williams) One line prompt
   pretty = %C(blue)%h%Creset %Cgreen[%cr]%Creset (%an) %s
 [color "diff"]
   # Color syntax: <foreground> <background>
