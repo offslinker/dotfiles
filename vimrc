@@ -48,10 +48,16 @@ if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor
 endif
 
-" Color scheme
-colorscheme github
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
+syntax enable
+let hr = str2nr(strftime('%H'))
+if hr > 8 && hr < 14
+  set background=light
+else
+  set background=dark
+endif
+set t_Co=16
+let g:solarized_termcolors=16
+colorscheme solarized
 
 " Numbers
 set number
