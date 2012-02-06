@@ -51,13 +51,15 @@ endif
 syntax enable
 let hr = str2nr(strftime('%H'))
 if hr > 8 && hr < 14
+  colorscheme adam
   set background=light
 else
+  colorscheme solarized
   set background=dark
 endif
 set t_Co=16
 let g:solarized_termcolors=16
-colorscheme solarized
+
 
 " Numbers
 set number
