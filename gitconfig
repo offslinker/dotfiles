@@ -32,3 +32,5 @@
   # For Github-style word diffs
   wordRegex = [^[:space:]]
 
+[core]
+	excludesfile = /home/alex/.gitignore_global

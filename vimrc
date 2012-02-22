@@ -34,6 +34,7 @@ augroup END
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set tabpagemax=30
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
