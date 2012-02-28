@@ -6,6 +6,7 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
+call pathogen#runtime_append_all_bundles()
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -51,16 +52,9 @@ endif
 
 syntax enable
 let hr = str2nr(strftime('%H'))
-if hr > 8 && hr < 14
-  colorscheme adam
-  set background=light
-else
-  colorscheme solarized
-  set background=dark
-endif
+:colorscheme vividchalk
 set t_Co=16
 let g:solarized_termcolors=16
-
 
 " Numbers
 set number
