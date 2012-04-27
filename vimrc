@@ -52,9 +52,9 @@ endif
 
 syntax enable
 let hr = str2nr(strftime('%H'))
-:colorscheme vividchalk
+:colorscheme sunburst
 set t_Co=16
-let g:solarized_termcolors=16
+"let g:solarized_termcolors=16
 
 " Numbers
 set number
@@ -130,3 +130,8 @@ imap <C-L> <Space>=><Space>
  " Edit routes
 command! Rroutes :e config/routes.rb
 command! Rschema :e db/schema.rb
+
+nmap <silent> <A-Up> :wincmd i<CR>
+nmap <silent> <A-Down> :wincmd k<CR>
+nmap <silent> <A-Left> :wincmd j<CR>
+nmap <silent> <A-Right> :wincmd l<CR>

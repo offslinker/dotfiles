@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/uge/Projects/autohaus24/app/views/callcenter/unapproved_available_cars'
+let g:netrw_dirhist_2='/home/uge/Projects/autohaus24/test/integration'
+let g:netrw_dirhist_3='/home/uge/dotfiles/vim/bundle/vim-vividchalk'
