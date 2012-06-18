@@ -1,5 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/uge/Projects/autohaus24/app/views/callcenter/unapproved_available_cars'
 let g:netrw_dirhist_2='/home/uge/Projects/autohaus24/test/integration'
 let g:netrw_dirhist_3='/home/uge/dotfiles/vim/bundle/vim-vividchalk'
+let g:netrw_dirhist_4='/home/uge/.vim'
+let g:netrw_dirhist_5='/home/uge/Projects/autohaus24/test/functional/api/v1'
+let g:netrw_dirhist_6='/home/uge/Projects/customer_portal/app/controllers/api'
+let g:netrw_dirhist_7='/usr/local/rvm/gems/ruby-1.9.3-p125/gems/translate_routes-3.0.3'
+let g:netrw_dirhist_8='/home/uge/Projects/customer_portal/app/models/autohaus24'

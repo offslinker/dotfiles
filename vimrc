@@ -6,15 +6,24 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
-call pathogen#runtime_append_all_bundles()
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
+filetype off
+syntax off
+runtime! autoload/pathogen.vim
+if exists('g:loaded_pathogen')
+  call pathogen#runtime_prepend_subdirectories(expand('~/.vim/bundle'))
 endif
 
+syntax on
 filetype plugin indent on
+
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+syntax enable
+filetype plugin indent on
+
 
 augroup vimrcEx
   au!
@@ -50,7 +59,6 @@ if executable("ack")
   set grepprg=ack\ -H\ --nogroup\ --nocolor
 endif
 
-syntax enable
 let hr = str2nr(strftime('%H'))
 :colorscheme sunburst
 set t_Co=16
@@ -59,9 +67,6 @@ set t_Co=16
 " Numbers
 set number
 set numberwidth=5
-
-" Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
 
 " Tab completion options
 set wildmode=list:longest,list:full
@@ -123,7 +128,15 @@ vmap P p :call setreg('"', getreg('0')) <CR>
 au! BufRead,BufNewFile *.haml         setfiletype haml
 "
 " Maps autocomplete to tab
-imap <Tab> <C-N>
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 imap <C-L> <Space>=><Space>
 
@@ -135,3 +148,6 @@ nmap <silent> <A-Up> :wincmd i<CR>
 nmap <silent> <A-Down> :wincmd k<CR>
 nmap <silent> <A-Left> :wincmd j<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
+" Snippets are activated by Shift+Tab
+let g:snippetsEmu_key = "<S-Tab>"
+
