@@ -68,10 +68,6 @@ set t_Co=16
 set number
 set numberwidth=5
 
-" Tab completion options
-set wildmode=list:longest,list:full
-set complete=.,w,t
-
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
@@ -127,16 +123,6 @@ vmap P p :call setreg('"', getreg('0')) <CR>
 " For Haml
 au! BufRead,BufNewFile *.haml         setfiletype haml
 "
-" Maps autocomplete to tab
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-
-:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
 imap <C-L> <Space>=><Space>
 

@@ -34,3 +34,5 @@
 
 [core]
 	excludesfile = /home/alex/.gitignore_global
+[rerere]
+  enabled = true
