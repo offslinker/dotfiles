@@ -60,7 +60,7 @@ if executable("ack")
 endif
 
 let hr = str2nr(strftime('%H'))
-:colorscheme sunburst
+:colorscheme eclipse
 set t_Co=16
 "let g:solarized_termcolors=16
 
