@@ -63,3 +63,5 @@ setopt CORRECT CORRECT_ALL
 
 # Enable extended globbing
 setopt EXTENDED_GLOB
+
+PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting

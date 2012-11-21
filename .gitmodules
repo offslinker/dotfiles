@@ -52,3 +52,6 @@
 [submodule "vim/bundle/handlebars"]
 	path = vim/bundle/handlebars
 	url = git://github.com/nono/vim-handlebars.git
+[submodule "vim/bundle/typescript"]
+	path = vim/bundle/typescript
+	url = git://github.com/leafgarland/typescript-vim.git
